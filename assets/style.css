@@ -17,3 +17,15 @@ h1, h2, h3, h4, h5, h6 {
 .text-secondary {
   color: #D3D3D3 !important;
 }
+
+/* Botones personalizados */
+.btn-gamer {
+  background-color: #39FF14;
+  color: #db0e0e;
+  font-weight: bold;
+  border: none;
+}
+.btn-gamer:hover {
+  background-color: #32cc10;
+  color: #fff;
+}
