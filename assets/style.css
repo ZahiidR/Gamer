@@ -124,3 +124,9 @@ footer img { filter: drop-shadow(0 0 6px rgba(30,144,255,0.7)); }
 
 #social a.btn { transition: all 0.3s ease; border-radius: 50px; }
 #social a.btn:hover { background-color: #39FF14; color: #000 !important; border-color: #39FF14; }
+
+#contacto input, #contacto textarea { border-radius: 10px; transition: all 0.3s ease; }
+#contacto input:focus, #contacto textarea:focus { border-color: #1E90FF; box-shadow: 0 0 10px rgba(30,144,255,0.5); }
+
+.modal-content { border-radius: 12px; border: 1px solid #1E90FF; }
+.modal-title { font-family: 'Orbitron', sans-serif; }
