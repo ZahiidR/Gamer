@@ -49,3 +49,25 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link.active {
   color: #39FF14 !important;
 }
+
+/* HERO */
+#inicio {
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 100%);
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+#inicio h1 span {
+  color: #39FF14;
+}
+
+#inicio img {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animación flotante para el logo */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
