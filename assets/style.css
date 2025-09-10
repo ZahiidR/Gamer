@@ -29,3 +29,23 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #32cc10;
   color: #fff;
 }
+
+/* Navbar */
+.navbar {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.navbar-brand span {
+  color: #1E90FF;
+  letter-spacing: 2px;
+}
+
+.nav-link {
+  color: #D3D3D3 !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #39FF14 !important;
+}
