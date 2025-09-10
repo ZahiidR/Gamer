@@ -153,5 +153,75 @@
     </div>
   </footer>
 
+  <script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const KEY = 'carritoLevelUp_v1';
+let carrito = [];
+
+function parsePrice(text){
+  const cleaned = text.replace(/[^0-9]/g,'');
+  return parseInt(cleaned)||0;
+}
+
+function formatPrice(n){
+  return n.toLocaleString('es-CL');
+}
+
+function saveCart(){ localStorage.setItem(KEY, JSON.stringify(carrito)); }
+function loadCart(){ carrito = JSON.parse(localStorage.getItem(KEY) || '[]'); }
+
+function renderCart(){
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartTotalEl = document.getElementById('cartTotal');
+  const cartCountEl = document.getElementById('cartCount');
+  cartItemsEl.innerHTML = '';
+  if(carrito.length === 0){
+    cartItemsEl.innerHTML = '<li class="list-group-item small-muted">Tu carrito está vacío.</li>';
+    cartTotalEl.textContent = '$0';
+    cartCountEl.textContent = '0';
+    return;
+  }
+  carrito.forEach((item,index) => {
+    const subtotal = item.unitPrice * item.qty;
+    const li = document.createElement('li');
+    li.className = 'list-group-item d-flex justify-content-between align-items-start';
+    li.innerHTML = `
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">${item.name}</div>
+        <div class="small-muted">Unidad: $${formatPrice(item.unitPrice)} · Cant: ${item.qty}</div>
+      </div>
+      <div class="text-end">
+        <div class="price">$${formatPrice(subtotal)}</div>
+        <div class="btn-group mt-2" role="group">
+          <button class="btn btn-sm btn-outline-light" onclick="decreaseItem(${index})">-</button>
+          <button class="btn btn-sm btn-outline-light" onclick="increaseItem(${index})">+</button>
+          <button class="btn btn-sm btn-outline-danger ms-2" onclick="removeItem(${index})"><i class="bi bi-trash"></i></button>
+        </div>
+      </div>`;
+    cartItemsEl.appendChild(li);
+  });
+  const total = carrito.reduce((s,i)=> s + i.unitPrice * i.qty,0);
+  cartTotalEl.textContent = `$${formatPrice(total)}`;
+  cartCountEl.textContent = carrito.reduce((s,i)=> s+i.qty,0);
+}
+
+function addProduct(name,price){
+  const idx = carrito.findIndex(p=>p.name===name);
+  if(idx>=0){ carrito[idx].qty++; }
+  else{ carrito.push({name,unitPrice:price,qty:1}); }
+  saveCart(); renderCart();
+}
+
+function decreaseItem(index){
+  carrito[index].qty--;
+  if(carrito[index].qty<=0) carrito.splice(index,1);
+  saveCart(); renderCart();
+}
+function increaseItem(index){ carrito[index].qty++; saveCart(); renderCart(); }
+function removeItem(index){ carrito.splice(index,1); saveCart(); renderCart(); }
+function clearCart(){ carrito=[]; saveCart(); renderCart(); }
+</script>
+
 </body>
 </html>
