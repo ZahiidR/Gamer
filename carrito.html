@@ -10,6 +10,56 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 
+<style>
+    :root{
+      --gamer-green: #39FF14;
+      --gamer-green-dark: #28cc0f;
+      --gamer-blue: #1E90FF;
+      --bg-dark: #000;
+      --muted: #d3d3d3;
+    }
+
+    body{ background: var(--bg-dark); color:#fff; font-family: 'Roboto', sans-serif; }
+
+    .navbar{ background: #0b0b0b; border-bottom: 1px solid rgba(255,255,255,0.05); }
+
+    /* Botón principal */
+    .btn-gamer{
+      background: var(--gamer-green) !important;
+      color: #000 !important;
+      border: none !important;
+      font-weight: 700;
+      border-radius: 10px;
+      transition: all .2s ease;
+    }
+    .btn-gamer:hover, .btn-gamer:focus{
+      background: var(--gamer-green-dark) !important;
+      color: #fff !important;
+      transform: translateY(-1px);
+      box-shadow: 0 0 15px rgba(57,255,20,0.4);
+    }
+
+    /* Cards de productos */
+    .card{ background: #0c0c0c; border: 1px solid rgba(255,255,255,0.05); border-radius: 12px; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .card:hover{ transform: translateY(-6px); box-shadow: 0 0 20px rgba(57,255,20,0.4); }
+    .card-title{ color: #fff; font-family: 'Orbitron', sans-serif; }
+    .card-text{ color: #cfcfcf; }
+
+    .card .btn-gamer{ padding: .4rem .7rem; font-size: .9rem; }
+
+    /* Offcanvas carrito */
+    .offcanvas{ background: #0a0a0a; color:#fff; }
+    .list-group-item{ background: transparent; border: none; color: #fff; }
+
+    .price{ color: var(--gamer-green); font-weight: 700; }
+    .small-muted{ color: #bdbdbd; font-size: .85rem; }
+
+    .btn-outline-light{ border-color: rgba(255,255,255,0.2); color: #fff; }
+    .btn-outline-light:hover{ background: var(--gamer-blue); border-color: var(--gamer-blue); }
+
+    footer{ background: #0b0b0b; color:#bdbdbd; padding: 3rem 0; margin-top: 4rem; }
+  </style>
+
 </head>
 <body>
 </body>
