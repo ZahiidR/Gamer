@@ -635,6 +635,131 @@
   </div>
 </section>
 
+<!-- FOOTER -->
+<footer class="py-5 bg-dark text-white-50">
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- Logo y descripción -->
+      <div class="col-12 col-md-4 text-center text-md-start">
+        <img src="assets/logo_gamer.png" alt="Logo Level Up Gamer" width="60" class="mb-3">
+        <p class="small">
+          Level Up Gamer es tu tienda online gamer en Chile 🎮. Consolas, accesorios y más,
+          con despacho a todo el país.
+        </p>
+      </div>
+
+      <!-- LOGIN MODAL -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- Correo -->
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control bg-dark text-white border-secondary" id="loginEmail" placeholder="ejemplo@correo.com" required>
+          </div>
+          <!-- Contraseña -->
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control bg-dark text-white border-secondary" id="loginPassword" placeholder="********" required>
+          </div>
+          <!-- Botón -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-gamer">Ingresar</button>
+          </div>
+        </form>
+        <p class="mt-3 small text-secondary text-center">
+          ¿No tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#registerModal" class="text-primary">Regístrate aquí</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTRO MODAL -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title" id="registerModalLabel">Crear Cuenta</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- Nombre -->
+          <div class="mb-3">
+            <label for="registerName" class="form-label">Nombre completo</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="registerName" placeholder="Tu nombre" required>
+          </div>
+          <!-- Correo -->
+          <div class="mb-3">
+            <label for="registerEmail" class="form-label">Correo electrónico</label>
+            <input type="email" class="form-control bg-dark text-white border-secondary" id="registerEmail" placeholder="ejemplo@correo.com" required>
+          </div>
+          <!-- Edad -->
+          <div class="mb-3">
+            <label for="registerAge" class="form-label">Edad</label>
+            <input type="number" class="form-control bg-dark text-white border-secondary" id="registerAge" placeholder="Ej: 20" min="18" required>
+            <small class="text-secondary">* Solo usuarios mayores de 18 años</small>
+          </div>
+          <!-- Contraseña -->
+          <div class="mb-3">
+            <label for="registerPassword" class="form-label">Contraseña</label>
+            <input type="password" class="form-control bg-dark text-white border-secondary" id="registerPassword" placeholder="********" required>
+          </div>
+          <!-- Botón -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-gamer">Registrarse</button>
+          </div>
+        </form>
+        <p class="mt-3 small text-secondary text-center">
+          ¿Ya tienes cuenta? <a href="#" data-bs-toggle="modal" data-bs-target="#loginModal" class="text-primary">Inicia sesión</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+      <!-- Navegación rápida -->
+      <div class="col-6 col-md-4">
+        <h5 class="text-white">Enlaces</h5>
+        <ul class="list-unstyled small">
+          <li><a href="#inicio" class="text-decoration-none text-secondary">Inicio</a></li>
+          <li><a href="#catalogo" class="text-decoration-none text-secondary">Catálogo</a></li>
+          <li><a href="#mision-vision" class="text-decoration-none text-secondary">Misión & Visión</a></li>
+          <li><a href="#comunidad" class="text-decoration-none text-secondary">Comunidad</a></li>
+          <li><a href="#contacto" class="text-decoration-none text-secondary">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Redes sociales -->
+      <div class="col-6 col-md-4 text-center text-md-start">
+        <h5 class="text-white">Síguenos</h5>
+        <div class="d-flex gap-3 justify-content-center justify-content-md-start">
+          <a href="#" class="text-secondary fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-secondary fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="text-secondary fs-4"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="text-secondary fs-4"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="border-secondary my-4">
+
+    <!-- Derechos -->
+    <div class="text-center small">
+      <p class="mb-0">&copy; <span id="year"></span> Level Up Gamer. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('searchCatalogo');
