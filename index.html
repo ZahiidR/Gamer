@@ -42,6 +42,47 @@
   </div>
 </div>
 
+<!-- MODAL RESEÑA -->
+<div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title" id="reviewModalLabel">Dejar una Reseña</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!-- Nombre -->
+          <div class="mb-3">
+            <label for="reviewName" class="form-label">Tu nombre</label>
+            <input type="text" class="form-control bg-dark text-white border-secondary" id="reviewName" required>
+          </div>
+          <!-- Calificación -->
+          <div class="mb-3">
+            <label class="form-label">Calificación</label>
+            <select class="form-select bg-dark text-white border-secondary">
+              <option>⭐⭐⭐⭐⭐ (5 estrellas)</option>
+              <option>⭐⭐⭐⭐ (4 estrellas)</option>
+              <option>⭐⭐⭐ (3 estrellas)</option>
+              <option>⭐⭐ (2 estrellas)</option>
+              <option>⭐ (1 estrella)</option>
+            </select>
+          </div>
+          <!-- Comentario -->
+          <div class="mb-3">
+            <label for="reviewText" class="form-label">Comentario</label>
+            <textarea class="form-control bg-dark text-white border-secondary" id="reviewText" rows="4" required></textarea>
+          </div>
+          <!-- Botón -->
+          <div class="d-grid">
+            <button type="submit" class="btn btn-gamer">Enviar Reseña</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-primary">
   <div class="container">
