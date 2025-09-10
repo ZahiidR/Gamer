@@ -585,6 +585,56 @@
   </div>
 </section>
 
+<!-- CONTACTO -->
+<section id="contacto" class="py-5 bg-black text-white">
+  <div class="container" style="max-width: 720px;">
+    
+    <header class="text-center mb-5">
+      <h2 class="display-5 fw-bold text-primary">Contacto</h2>
+      <p class="text-secondary">¿Tienes dudas, sugerencias o quieres cotizar? Escríbenos ✉️</p>
+    </header>
+
+    <!-- Formulario -->
+    <form>
+      <!-- Nombre -->
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input type="text" class="form-control bg-dark text-white border-secondary" id="nombre" placeholder="Tu nombre" required>
+      </div>
+
+      <!-- Correo -->
+      <div class="mb-3">
+        <label for="correo" class="form-label">Correo</label>
+        <input type="email" class="form-control bg-dark text-white border-secondary" id="correo" placeholder="tucorreo@ejemplo.com" required>
+      </div>
+
+      <!-- Mensaje -->
+      <div class="mb-3">
+        <label for="mensaje" class="form-label">Mensaje</label>
+        <textarea class="form-control bg-dark text-white border-secondary" id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí..." required></textarea>
+      </div>
+
+      <!-- Botón -->
+      <div class="d-grid">
+        <button type="submit" class="btn btn-gamer btn-lg">
+          <i class="bi bi-send-fill"></i> Enviar
+        </button>
+      </div>
+    </form>
+
+    <!-- Opciones extra -->
+    <div class="text-center mt-4">
+      <a href="mailto:contacto@levelupgamer.cl" class="text-secondary me-3">
+        <i class="bi bi-envelope-fill"></i> contacto@levelupgamer.cl
+      </a>
+      <a href="https://wa.me/56912345678" target="_blank" class="text-success">
+        <i class="bi bi-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+
+  </div>
+</section>
+
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const input = document.getElementById('searchCatalogo');
