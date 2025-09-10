@@ -130,3 +130,14 @@ footer img { filter: drop-shadow(0 0 6px rgba(30,144,255,0.7)); }
 
 .modal-content { border-radius: 12px; border: 1px solid #1E90FF; }
 .modal-title { font-family: 'Orbitron', sans-serif; }
+
+.card-img-top {
+  max-height: 200px;
+  object-fit: contain;
+  margin: 10px;
+  border-radius: 8px;
+}
+
+.card {
+  overflow: hidden;
+}
