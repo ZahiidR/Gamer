@@ -11,6 +11,37 @@
     <title>LEVEL UP GAMER !</title>
 </head>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- CARRITO -->
+<div class="offcanvas offcanvas-end bg-dark text-white" tabindex="-1" id="carrito" aria-labelledby="carritoLabel">
+  <div class="offcanvas-header border-bottom border-secondary">
+    <h5 class="offcanvas-title text-primary fw-bold" id="carritoLabel">
+      <i class="bi bi-cart4"></i> Carrito de Compras
+    </h5>
+    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+
+    
+    <!-- Lista de productos -->
+    <ul id="cartItems" class="list-group list-group-flush mb-3">
+      <li class="list-group-item bg-dark text-secondary">Tu carrito está vacío 😢</li>
+    </ul>
+    <!-- Total -->
+    <div class="mt-auto border-top border-secondary pt-3">
+      <h6 class="d-flex justify-content-between">
+        <span>Total:</span>
+        <span id="cartTotal" class="fw-bold text-success">$0</span>
+      </h6>
+      <div class="d-grid mt-3">
+        <button class="btn btn-gamer" id="checkoutBtn">
+          <i class="bi bi-credit-card"></i> Finalizar Compra
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-black sticky-top border-bottom border-primary">
   <div class="container">
@@ -301,6 +332,93 @@
     </div><!-- /tab-content -->
   </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const input = document.getElementById('searchCatalogo');
+  const clearBtn = document.getElementById('clearSearch');
+
+  if (!input) {
+    console.warn('[catalogo] No se encontró el input #searchCatalogo');
+    return;
+  }
+
+  // Normaliza (quita acentos y pasa a minúsculas)
+  const normalize = s => (s || '').normalize?.('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+
+  // Encuentra la pestaña/pane activa (robusto)
+  function getActivePane() {
+    const panes = document.querySelectorAll('#catalogo .tab-pane');
+    for (const p of panes) {
+      // Bootstrap marca con .show o .active; además comprobamos si es visible por CSS
+      if (p.classList.contains('show') || p.classList.contains('active') || window.getComputedStyle(p).display !== 'none') {
+        return p;
+      }
+    }
+    return panes[0] || null;
+  }
+
+  function filtrar() {
+    try {
+      const q = normalize(input.value.trim());
+      const pane = getActivePane();
+      if (!pane) return;
+
+      const cards = pane.querySelectorAll('.card');
+      let visibles = 0;
+
+      cards.forEach(card => {
+        // Preferimos título, luego data-name (si lo agregas), alt de imagen y texto de la card
+        const title = card.querySelector('.card-title')?.textContent || card.getAttribute('data-name') || '';
+        const alt   = card.querySelector('img')?.alt || '';
+        const meta  = card.querySelector('.card-text')?.textContent || '';
+        const combined = normalize(title + ' ' + alt + ' ' + meta + ' ' + card.textContent);
+
+        const match = q === '' || combined.includes(q);
+
+        // Ocultamos la columna que envuelve la card (mejor UX que ocultar solo la card)
+        const col = card.closest('[class*="col-"]');
+        if (col) {
+          col.style.display = match ? '' : 'none';
+        } else {
+          card.style.display = match ? '' : 'none';
+        }
+
+        if (match) visibles++;
+      });
+
+      // Mensaje útil en consola para debug
+      console.log(`[catalogo] buscar="${q}" -> ${visibles}/${cards.length} visibles en la pestaña actual.`);
+    } catch (err) {
+      console.error('[catalogo] Error en filtrar():', err);
+    }
+  }
+
+  // Eventos
+  input.addEventListener('input', filtrar);
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      input.value = '';
+      filtrar();
+      input.focus();
+    });
+  }
+
+  // Refiltrar al cambiar pestaña (Bootstrap emite shown.bs.tab)
+  const tabButtons = document.querySelectorAll('#catalogo [data-bs-toggle="pill"], #catalogo [data-bs-toggle="tab"]');
+  tabButtons.forEach(btn => {
+    btn.addEventListener('shown.bs.tab', () => {
+      // pequeño delay para que Bootstrap termine de mostrar la pestaña
+      setTimeout(filtrar, 50);
+    });
+  });
+
+  // Filtrar al cargar (por si hay texto preexistente)
+  filtrar();
+});
+</script>
 
 </body>
 </html>
