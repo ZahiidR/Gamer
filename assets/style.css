@@ -1,8 +1,8 @@
 /* Tipografía base */
 body {
   font-family: 'Roboto', sans-serif;
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: #000000; 
+  color: #FFFFFF; 
   margin: 0;
   padding: 0;
 }
@@ -10,7 +10,7 @@ body {
 /* Encabezados */
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Orbitron', sans-serif;
-  color: #1E90FF;
+  color: #1E90FF; 
 }
 
 /* Texto secundario */
@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar-brand span {
-  color: #1E90FF;
+  color: #312f34; 
   letter-spacing: 2px;
 }
 
@@ -47,7 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link:hover,
 .nav-link.active {
-  color: #39FF14 !important;
+  color: #000000 !important; 
 }
 
 /* HERO */
@@ -299,12 +299,64 @@ footer img {
 }
 
 .card-img-top {
-  max-height: 200px;
-  object-fit: contain;
-  margin: 10px;
+  max-height: 200px;     
+  object-fit: contain;   
+  margin: 10px;          
   border-radius: 8px;
+  overflow: hidden;
 }
 
 .card {
   overflow: hidden;
+}
+
+/* ====== Fondo interactivo (canvas) ====== */
+#bg-canvas{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;          /* atrás de todo */
+  pointer-events: none; /* no bloquea clicks */
+  display: block;
+}
+
+/* Hacer que las secciones con clases bg-dark/bg-black sean semi-transparentes
+   para que el fondo se vea por debajo. Solo afecta a <section> con esas clases. */
+section.bg-dark, section.bg-black {
+  background-color: rgba(0,0,0,0.75) !important;
+}
+
+/* Si tienes secciones con clases personalizadas, aplica igualmente:
+   .overlay-section { background-color: rgba(0,0,0,0.75) !important; } */
+
+   #bg-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  background: #000;
+}
+
+.btn-gamer {
+  background: linear-gradient(45deg, #39ff14, #00ffff);
+  border: none;
+  color: #000;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-gamer:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px #39ff14aa;
+}
+
+.btn-categoria.active,
+.btn-gamer.active {
+  background: #39ff14 !important;
+  color: #000 !important;
 }
